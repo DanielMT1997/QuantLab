@@ -69,6 +69,7 @@ def run_backtest(
     tuple[pd.Series, pd.Series]
         Strategy returns and equity curve.
     """
+    validate_inputs(returns, position)
     strategy_returns = calculate_strategy_returns(returns, position)
     equity_curve = calculate_equity_curve(strategy_returns)
 
@@ -92,3 +93,24 @@ def compare_equity_curves(
     """
     comparison = pd.DataFrame(equity_curves).dropna() #dropna para quitar los posibles días en los que haya alguna curva sin datos.
     return comparison
+
+def validate_inputs(returns: pd.Series, position: pd.Series) -> None:
+    """
+    Checks if returns and position are actually compatible to execute a backtest.
+
+    Parameters
+    -----------
+    returns : the returns of an equity
+
+    position : the position of a strategy
+    """
+    if not isinstance(returns, pd.Series):
+        raise TypeError("returns must be a pandas Series")
+    if not isinstance(position, pd.Series):
+        raise TypeError("position must be a pandas Series")
+    if not returns.index.equals(position.index):
+        raise ValueError("returns and positions have different indices")
+    if returns.isnull().values.any():
+        raise ValueError("There are missing values in the returns")
+    if position.isnull().values.any():
+        raise ValueError("There are missing values in the position")

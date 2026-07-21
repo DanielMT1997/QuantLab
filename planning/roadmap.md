@@ -13,20 +13,26 @@
 - [x] Calcular drawdown
 - [x] Escribir informe del Sprint 1
 
-## Módulo 2 — Backtester simple
+## Módulo 2 — Backtester simple ✅
 
-- [ ] Definir estructura mínima de backtesting
-- [ ] Separar señales, posiciones y rendimientos
-- [ ] Crear una función para curva de capital
-- [ ] Crear una función para drawdown
-- [ ] Crear una función de métricas
-- [ ] Probar el backtester con buy and hold
-- [ ] Documentar resultados
+- [x] Crear notebook de backtester básico
+- [x] Separar rendimientos, posiciones y rendimientos de estrategia
+- [x] Entender `position.shift(1)`
+- [x] Crear funciones de métricas en `src/metrics.py`
+- [x] Crear funciones de backtesting en `src/backtester.py`
+- [x] Validar el backtester contra buy and hold
+- [x] Comparar métricas manuales vs backtester
+- [x] Comparar curvas de capital
+- [x] Escribir informe del Sprint 2
 
 ## Módulo 3 — Primera estrategia activa
 
-- [ ] Implementar medias móviles
-- [ ] Generar señales
+- [ ] Implementar estrategia de cruce de medias móviles
+- [ ] Calcular medias móviles corta y larga
+- [ ] Crear señales
+- [ ] Convertir señales en posiciones
+- [ ] Ejecutar backtest con `run_backtest`
 - [ ] Comparar contra buy and hold
-- [ ] Analizar drawdown
-- [ ] Escribir informe
+- [ ] Analizar rentabilidad, volatilidad y drawdown
+- [ ] Estudiar sensibilidad básica a parámetros
+- [ ] Escribir informe del Sprint 3
